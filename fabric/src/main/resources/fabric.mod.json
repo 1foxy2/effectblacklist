@@ -31,10 +31,5 @@
     "java": ">=21"
   },
   "custom": {
-    "modmenu": {
-      "links": {
-        "modmenu.discord": "https://discord.gg/SGFDrvA"
-      }
-    }
   }
 }
