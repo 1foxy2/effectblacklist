@@ -2,43 +2,33 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}",
-  "name": "More Culling",
+  "name": "${mod_name}",
   "description": "${description}",
   "authors": [
     "${mod_author}"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/moreculling",
-    "sources": "https://github.com/fxmorin/moreculling",
-    "issues": "https://github.com/fxmorin/moreculling/issues"
   },
   "icon": "assets/moreculling/MoreCulling.png",
   "license": "${license}",
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "ca.fxco.moreculling.MoreCullingFabric"
+    "main": [
+      "net.foxy.effectblacklister.EffectBlackListerFabric"
     ],
     "modmenu": [
-      "ca.fxco.moreculling.config.ModMenuCompat"
+      "net.foxy.effectblacklister.EffectBlackListerFabric"
     ]
   },
   "mixins": [
     "${mod_id}.mixins.json",
     "${mod_id}.fabric.mixins.json"
   ],
-  "accessWidener" : "moreculling.accesswidener",
+  "accessWidener" : "effectblacklister.accesswidener",
   "depends": {
     "fabricloader": ">=0.15.0",
     "minecraft": ">=1.21",
-    "java": ">=21",
-    "cloth-config": ">=16.0.0"
-  },
-  "suggests": {
-    "sodium": ">=0.6.7"
-  },
-  "breaks": {
-    "sodium": "<=0.6.6"
+    "java": ">=21"
   },
   "custom": {
     "modmenu": {

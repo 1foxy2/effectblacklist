@@ -1,16 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "ca.fxco.moreculling.mixin",
+  "package": "net.foxy.effectblacklister.mixin",
   "refmap": "${mod_id}.refmap.json",
   "compatibilityLevel": "JAVA_21",
-  "plugin": "ca.fxco.moreculling.config.MixinConfigPlugin",
   "client": [
-    "compat.AbstractBlockRenderContext_vulkanModMixin",
-    "blockstates.Block_fabricDrawSideMixin",
-    //"models.ItemModelGenerator_cullMixin",
-    //"models.cullshape.BlockModel_fabricCullShapeMixin",
-    "Minecraft_registerReloadListenersMixin"
   ],
   "injectors": {
     "defaultRequire": 1
