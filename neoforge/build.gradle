@@ -1,11 +1,10 @@
 plugins {
     id 'multiloader-loader'
-    id 'net.neoforged.moddev'
+    id 'net.neoforged.moddev.legacyforge'
 }
 
-neoForge {
+legacyForge {
     version = neoforge_version
-    validateAccessTransformers = true
     // Automatically enable neoforge AccessTransformers if the file exists
     def at = project(':common').file('src/main/resources/META-INF/accesstransformer.cfg')
     if (at.exists()) {
@@ -16,12 +15,11 @@ neoForge {
         mappingsVersion = parchment_version
     }
     runs {
-        configureEach {
-            systemProperty('neoforge.enabledGameTestNamespaces', mod_id)
-            ideName = "NeoForge ${it.name.capitalize()} (${project.path})" // Unify the run config names with fabric
-        }
         client {
             client()
+        }
+        data {
+            data()
         }
         server {
             server()
@@ -35,7 +33,19 @@ neoForge {
 }
 
 dependencies {
-    api "fuzs.forgeconfigapiport:forgeconfigapiport-neoforge:${project.forge_config_api_version}"
+    implementation group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+mixin {
+    add sourceSets.main, 'effectblacklister.refmap.json'
+    config 'effectblacklister.mixins.json' // This can be done for multiple configs
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+jar {
+    manifest.attributes([
+            "MixinConfigs": "effectblacklister.mixins.json"
+    ])
+}

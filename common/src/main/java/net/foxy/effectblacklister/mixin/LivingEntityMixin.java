@@ -1,8 +1,5 @@
 package net.foxy.effectblacklister.mixin;
 
-import com.llamalad7.mixinextras.sugar.Local;
-import com.llamalad7.mixinextras.sugar.ref.LocalRef;
-import com.mojang.logging.LogUtils;
 import net.foxy.effectblacklister.EffectBlackLister;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -15,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
-public class AddEffectMixin {
+public class LivingEntityMixin {
     @Inject(
             method = "addEffect(Lnet/minecraft/world/effect/MobEffectInstance;Lnet/minecraft/world/entity/Entity;)Z",
             at = @At(
@@ -30,11 +27,11 @@ public class AddEffectMixin {
                                                 CallbackInfoReturnable<Boolean> cir) {
         for (String effectId : EffectBlackLister.CONFIG.getLeft().EFFECTS.get()) {
             String[] effectIds = effectId.split("=");
-            if (effectIds[0].equals(effectInstance.getEffect().getRegisteredName())) {
+            if (effectIds[0].equals(BuiltInRegistries.MOB_EFFECT.getKey(effectInstance.getEffect()).toString())) {
                 if (effectIds.length == 1) {
                     cir.setReturnValue(false);
                 } else {
-                    BuiltInRegistries.MOB_EFFECT.getHolder(ResourceLocation.parse(effectIds[1]))
+                    BuiltInRegistries.MOB_EFFECT.getOptional(new ResourceLocation(effectIds[1]))
                             .ifPresent(effect -> effectInstance.effect = effect);
                 }
                 return;
