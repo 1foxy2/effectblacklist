@@ -2,8 +2,8 @@
   "required": true,
   "minVersion": "0.8",
   "package": "net.foxy.effectblacklister.mixin",
-  "compatibilityLevel": "JAVA_21",
-  "client": [
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
   ],
   "injectors": {
     "defaultRequire": 1
