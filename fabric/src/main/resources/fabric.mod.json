@@ -8,6 +8,9 @@
     "${mod_author}"
   ],
   "contact": {
+    "homepage": "https://modrinth.com/project/effect-black-list",
+    "sources": "https://github.com/1foxy2/effectblacklist",
+    "issues": "https://github.com/1foxy2/effectblacklist/issues"
   },
   "icon": "icon.png",
   "license": "${license}",

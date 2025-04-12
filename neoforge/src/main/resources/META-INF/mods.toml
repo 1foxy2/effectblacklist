@@ -7,11 +7,15 @@ license="MIT"
 modId="effectblacklist" #mandatoryR
 version="${mod_version}" #mandatory
 displayName="${mod_name}" #mandatory
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+displayURL="https://modrinth.com/project/effect-black-list" #optional
+issueTrackerURL="https://github.com/1foxy2/effectblacklist/issues" #optional
 #credits="" #optional
 logoFile="icon.png" #optional
 authors="${mod_author}" #optional
 description='''${description}'''
+
+[modproperties.modmenu]
+sources="https://github.com/1foxy2/effectblacklist"
 
 [[dependencies.effectblacklist]] #optional
     modId="forge" #mandatory
