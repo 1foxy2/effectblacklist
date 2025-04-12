@@ -44,14 +44,14 @@ dependencies {
 }
 
 mixin {
-    add sourceSets.main, 'effectblacklister.refmap.json'
-    config 'effectblacklister.mixins.json' // This can be done for multiple configs
+    add sourceSets.main, 'effectblacklist.refmap.json'
+    config 'effectblacklist.mixins.json' // This can be done for multiple configs
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 jar {
     manifest.attributes([
-            "MixinConfigs": "effectblacklister.mixins.json"
+            "MixinConfigs": "effectblacklist.mixins.json"
     ])
 }

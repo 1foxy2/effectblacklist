@@ -1,6 +1,6 @@
-package net.foxy.effectblacklister.mixin;
+package net.foxy.effectblacklist.mixin;
 
-import net.foxy.effectblacklister.EffectBlackLister;
+import net.foxy.effectblacklist.EffectBlackList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
@@ -20,9 +20,9 @@ public class ItemStackMixin {
             method = "getTooltipLines",
             at = @At(value = "RETURN")
     )
-    private void removeEffectTooltip(Player player, TooltipFlag isAdvanced,
+    private void effectblacklist$removeEffectTooltip(Player player, TooltipFlag isAdvanced,
                                             CallbackInfoReturnable<List<Component>> cir) {
-        if (EffectBlackLister.CONFIG.getKey().FOODS.get()
+        if (EffectBlackList.CONFIG.getKey().FOODS.get()
                 .contains(BuiltInRegistries.ITEM.getKey(((ItemStack) (Object) this).getItem()).toString())) {
             cir.getReturnValue().removeIf(component -> {
                 if (component.getContents() instanceof TranslatableContents contents) {

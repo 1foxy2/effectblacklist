@@ -1,6 +1,6 @@
-package net.foxy.effectblacklister.mixin;
+package net.foxy.effectblacklist.mixin;
 
-import net.foxy.effectblacklister.EffectBlackLister;
+import net.foxy.effectblacklist.EffectBlackList;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -26,9 +26,9 @@ public class LivingEntityMixin {
             ),
             cancellable = true
     )
-    private void effectblacklister$modifyEffect(MobEffectInstance effectInstance, Entity entity,
+    private void effectblacklist$modifyEffect(MobEffectInstance effectInstance, Entity entity,
                                                 CallbackInfoReturnable<Boolean> cir) {
-        for (String effectId : EffectBlackLister.CONFIG.getLeft().EFFECTS.get()) {
+        for (String effectId : EffectBlackList.CONFIG.getLeft().EFFECTS.get()) {
             String[] effectIds = effectId.split("=");
             if (effectIds[0].equals(BuiltInRegistries.MOB_EFFECT.getKey(effectInstance.getEffect()).toString())) {
                 if (effectIds.length == 1) {
@@ -52,9 +52,9 @@ public class LivingEntityMixin {
             ),
             cancellable = true
     )
-    private void effectblacklister$modifyEffect(ItemStack food, Level level,
+    private void effectblacklist$modifyEffect(ItemStack food, Level level,
                                                 LivingEntity livingEntity, CallbackInfo ci) {
-        if (EffectBlackLister.CONFIG.getKey().FOODS.get().contains(BuiltInRegistries.ITEM.getKey(food.getItem()).toString())) {
+        if (EffectBlackList.CONFIG.getKey().FOODS.get().contains(BuiltInRegistries.ITEM.getKey(food.getItem()).toString())) {
             ci.cancel();
         }
     }

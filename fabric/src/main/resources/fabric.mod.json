@@ -9,18 +9,18 @@
   ],
   "contact": {
   },
-  "icon": "assets/moreculling/MoreCulling.png",
+  "icon": "icon.png",
   "license": "${license}",
   "entrypoints": {
     "main": [
-      "net.foxy.effectblacklister.EffectBlackListerFabric"
+      "net.foxy.effectblacklist.EffectBlackListFabric"
     ]
   },
   "mixins": [
     "${mod_id}.mixins.json",
     "${mod_id}.fabric.mixins.json"
   ],
-  "accessWidener" : "effectblacklister.accesswidener",
+  "accessWidener" : "effectblacklist.accesswidener",
   "depends": {
     "fabricloader": ">=0.15.0",
     "minecraft": ">=1.20.1",
