@@ -1,3 +1,4 @@
 accessWidener	v1	 named
 accessible field net/minecraft/world/effect/MobEffectInstance effect Lnet/minecraft/world/effect/MobEffect;
 mutable field net/minecraft/world/effect/MobEffectInstance effect Lnet/minecraft/world/effect/MobEffect;
+accessible method net/minecraft/world/food/FoodProperties <init> (IFZZZLjava/util/List;)V

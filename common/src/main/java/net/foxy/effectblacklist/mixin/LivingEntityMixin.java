@@ -47,8 +47,7 @@ public class LivingEntityMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/world/item/Item;isEdible()Z",
-                    shift = At.Shift.AFTER,
-                    remap = false
+                    shift = At.Shift.AFTER
             ),
             cancellable = true
     )
